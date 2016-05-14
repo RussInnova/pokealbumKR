@@ -19,6 +19,8 @@
 		5358D1041CE495CD0089951E /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5358D1031CE495CC0089951E /* Pokemon.ttf */; };
 		5358D1061CE498A60089951E /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5358D1051CE498A60089951E /* music.mp3 */; };
 		5358D1081CE4AA580089951E /* PokemonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358D1071CE4AA580089951E /* PokemonDetailVC.swift */; };
+		53D8282E1CE4FB9B003F8E1D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D8282D1CE4FB9B003F8E1D /* Constants.swift */; };
+		C54A55F7B8DA9C8ECC616EF3 /* Pods_poke_albumKR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F5ADAE6EA803FF8009A89 /* Pods_poke_albumKR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,10 @@
 		5358D1031CE495CC0089951E /* Pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pokemon.ttf; sourceTree = "<group>"; };
 		5358D1051CE498A60089951E /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		5358D1071CE4AA580089951E /* PokemonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailVC.swift; sourceTree = "<group>"; };
+		53D8282D1CE4FB9B003F8E1D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6D5EEB5708539ABE60C9213C /* Pods-poke_albumKR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poke_albumKR.release.xcconfig"; path = "Pods/Target Support Files/Pods-poke_albumKR/Pods-poke_albumKR.release.xcconfig"; sourceTree = "<group>"; };
+		8F9F5ADAE6EA803FF8009A89 /* Pods_poke_albumKR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poke_albumKR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4FE4E2004E2B70E134FD3D /* Pods-poke_albumKR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poke_albumKR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-poke_albumKR/Pods-poke_albumKR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54A55F7B8DA9C8ECC616EF3 /* Pods_poke_albumKR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +61,8 @@
 			children = (
 				5358D0E31CE3F2A60089951E /* poke_albumKR */,
 				5358D0E21CE3F2A60089951E /* Products */,
+				5D813B5E5FD218DCBC2BFF31 /* Pods */,
+				D324768F9AA777FBAF8D27AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				5358D0FE1CE4215A0089951E /* csv.swift */,
+				53D8282D1CE4FB9B003F8E1D /* Constants.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -125,6 +135,23 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		5D813B5E5FD218DCBC2BFF31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE4FE4E2004E2B70E134FD3D /* Pods-poke_albumKR.debug.xcconfig */,
+				6D5EEB5708539ABE60C9213C /* Pods-poke_albumKR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D324768F9AA777FBAF8D27AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F5ADAE6EA803FF8009A89 /* Pods_poke_albumKR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5358D0F31CE3F2A60089951E /* Build configuration list for PBXNativeTarget "poke_albumKR" */;
 			buildPhases = (
+				5ABDAE43664AF2E64DDE5146 /* Check Pods Manifest.lock */,
 				5358D0DD1CE3F2A60089951E /* Sources */,
 				5358D0DE1CE3F2A60089951E /* Frameworks */,
 				5358D0DF1CE3F2A60089951E /* Resources */,
+				295C334D9359EEAF8797F7FA /* Embed Pods Frameworks */,
+				AE3D28C74704981DE7749ABE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,6 +224,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		295C334D9359EEAF8797F7FA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-poke_albumKR/Pods-poke_albumKR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ABDAE43664AF2E64DDE5146 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE3D28C74704981DE7749ABE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-poke_albumKR/Pods-poke_albumKR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5358D0DD1CE3F2A60089951E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -203,6 +281,7 @@
 				5358D0E71CE3F2A60089951E /* ViewController.swift in Sources */,
 				5358D0E51CE3F2A60089951E /* AppDelegate.swift in Sources */,
 				5358D1081CE4AA580089951E /* PokemonDetailVC.swift in Sources */,
+				53D8282E1CE4FB9B003F8E1D /* Constants.swift in Sources */,
 				5358D0FA1CE40BA40089951E /* Pokemon.swift in Sources */,
 				5358D0FF1CE4215A0089951E /* csv.swift in Sources */,
 			);
@@ -315,6 +394,7 @@
 		};
 		5358D0F41CE3F2A60089951E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4FE4E2004E2B70E134FD3D /* Pods-poke_albumKR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = poke_albumKR/Info.plist;
@@ -326,6 +406,7 @@
 		};
 		5358D0F51CE3F2A60089951E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D5EEB5708539ABE60C9213C /* Pods-poke_albumKR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = poke_albumKR/Info.plist;
@@ -354,6 +435,7 @@
 				5358D0F51CE3F2A60089951E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
