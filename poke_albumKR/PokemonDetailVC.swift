@@ -27,6 +27,7 @@ class PokemonDetailVC: UIViewController {
     //Extra outlets for MOVES - type/learn-typeCategory, Defense/MoveNameCategory
     // Height/PowerCategory PokedexId/Accuracy
     //Hide Weight and BaseAttack
+    
     @IBOutlet weak var typeAndLearnTypeCategory: UILabel!
     @IBOutlet weak var defenseAndMoveNameCategory: UILabel!
     @IBOutlet weak var heightAndPowerCategory: UILabel!
@@ -38,6 +39,7 @@ class PokemonDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initialBioDataLoad()
 
     }
@@ -72,6 +74,12 @@ class PokemonDetailVC: UIViewController {
         baseAttackLbl.hidden = true
         weightCategory.hidden = true
         baseAttackCategory.hidden = true
+        
+        defenseAndMoveNameLbl.text = pokemon.moveName
+        typeAndLearnTypeLbl.text = pokemon.learnType
+        descriptionLbl.text = pokemon.moveDescription
+        heightAndPowerLbl.text = pokemon.power
+        pokedexAndAccuracyLbl.text = pokemon.accuracy
     }
 
     func updateUI() {
@@ -97,22 +105,28 @@ class PokemonDetailVC: UIViewController {
             }
            evolutionLbl.text = str
         }
-        
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
+        
         dismissViewControllerAnimated(true, completion: nil)
+        
     }
+    
     @IBAction func segmentPressed(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
+            
             initialBioDataLoad()
+            
         case 1:
-            nameLbl.text = "Second"
+            
             movesDataLoad()
+            
         default:
-            break; 
+            
+            break
         }
-        }
+    }
 }

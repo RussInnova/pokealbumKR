@@ -23,10 +23,50 @@ class Pokemon {
     private var _nextEvolutionLvl: String!
     private var _pokemonUrl: String!
     
+    
+    //For MOVES segment - type/learn-typeCategory, Defense/MoveNameCategory
+    // Height/PowerCategory PokedexId/Accuracy
+    //Hide Weight and BaseAttack
+    
+    private var _moveDescription: String!
+    private var _learnType: String!
+    private var _moveName: String!
+    private var _power: String!
+    private var _accuracy: String!
+
+    var moveDescription: String {
+        if _moveDescription == nil {
+            _moveDescription = ""
+        }
+        return _moveDescription
+    }
+    var learnType: String {
+        if _learnType == nil {
+            _learnType = ""
+        }
+        return _learnType
+    }
+    var moveName: String {
+        if _moveName == nil {
+            _moveName = ""
+        }
+        return _moveName
+    }
+    var power: String {
+        if _power == nil {
+            _power = ""
+        }
+        return _power
+    }
+    var accuracy: String {
+        if _accuracy == nil {
+            _accuracy = ""
+        }
+        return _accuracy
+    }
     var name: String {
         return _name
     }
-    
     var pokedexId: Int {
         return _pokedexId
     }
@@ -119,13 +159,65 @@ class Pokemon {
                 if let defense = dict["defense"] as? Int {
                     self._defense = "\(defense)"
                 }
-                print("DATA")
+                print("ID - NAME - WEIGHT - HEIGHT - BASEATTACK - DEFENSE")
                 print(self.pokedexId)
                 print(self._name)
                 print(self._weight)
                 print(self._height)
                 print(self._baseAttack)
                 print(self._defense)
+                
+                //MOVES
+                
+                if let moves = dict["moves"] as? [Dictionary<String, AnyObject>] where moves.count > 0 {
+                    if let name = moves[0]["name"] {
+                        self._moveName = name.capitalizedString
+                        print("MOVES_COUNT")
+                        print(moves.count)
+                        
+                        //For now only first move is provided to view - all data is available 
+                        // to process additional moves but there are LOTS of them - often more than 50
+                       
+                    } else {
+                        self._moveName = ""
+                    }
+                    if let learnType = moves[0]["learn_type"] {
+                        self._learnType = learnType.capitalizedString
+                    } else {
+                        self._learnType = ""
+                    }
+                    // "resource_uri": "/api/v1/move/20/"
+                    
+                    if let url = moves[0]["resource_uri"] {
+                        let nsurl = NSURL(string: "\(URL_BASE)\(url)")!
+                        Alamofire.request(.GET, nsurl).responseJSON { Response in
+                            let desResult = Response.result
+                            if let desDict = desResult.value as? Dictionary<String, AnyObject> {
+                                if let description = desDict["description"] as? String {
+                                    self._moveDescription = description
+                                }
+                                
+                                if let pwr = desDict["power"] as? Int {
+                                    self._power = "\(pwr)"
+                                }
+                                if let acc = desDict["accuracy"] as? Int {
+                                    self._accuracy = "\(acc)"
+                                }
+                                print("MOVE_DETAILS")
+                                print(self._moveDescription)
+                                print(self.power)
+                                print(self.accuracy)
+                            }
+                            completed()
+                        }
+                        
+                    }
+                }
+                
+                print("MOVES")
+                print(self._moveName)
+                print(self._learnType)
+                //END MOVES
                 
                 if let types = dict["types"] as? [Dictionary<String, String>] where types.count > 0 {
                     
