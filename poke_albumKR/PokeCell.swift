@@ -19,6 +19,11 @@ class PokeCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         
         layer.cornerRadius = 5.0
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSizeMake(5.0, 5.0)
+        
+//        layer.shadowRadius = 5.0
+//        layer.shadowOpacity = 1.0
     }
     
     func configureCell(pokemon: Pokemon) {
